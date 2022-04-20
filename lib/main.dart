@@ -32,7 +32,11 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Hello World',
+              style: TextStyle(
+                fontSize: 36,
+                color: Colors.grey,
+              ),
             ),
           ],
         ),
