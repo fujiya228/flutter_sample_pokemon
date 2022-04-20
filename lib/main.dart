@@ -28,10 +28,18 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.network(
-          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
-          height: 300,
-          width: 300,
+        child: Column(
+          children: [
+            Image.network(
+              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+              height: 100,
+              width: 100,
+            ),
+            const Text(
+              'mew',
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );
