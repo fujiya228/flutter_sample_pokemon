@@ -27,11 +27,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: MediaQuery.of(context).size.width,
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.network(
               "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
@@ -41,6 +39,10 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'mew',
               style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+            const Chip(
+              label: Text('psychic'),
+              backgroundColor: Color.fromRGBO(248, 88, 136, 1),
             ),
           ],
         ),
