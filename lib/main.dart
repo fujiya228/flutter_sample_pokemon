@@ -28,18 +28,8 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Hello World',
-              style: TextStyle(
-                fontSize: 36,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
+        child: Image.network(
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"),
       ),
     );
   }
