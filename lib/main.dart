@@ -25,19 +25,26 @@ class TopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('detail'),
-          onPressed: () => {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) => const PokeDetail(),
-              ),
-            ),
-          },
+    return const Scaffold(
+      body: Center(child: PokeButton()),
+    );
+  }
+}
+
+class PokeButton extends StatelessWidget {
+  const PokeButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: const Text('mew'),
+      onPressed: () => {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => const PokeDetail(),
+          ),
         ),
-      ),
+      },
     );
   }
 }
