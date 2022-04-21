@@ -26,30 +26,17 @@ class TopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: const [
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-          PokeButton(),
-        ],
-      ),
+      body: ListView.builder(
+          itemCount: 10000,
+          itemBuilder: (context, index) => PokeButton(index: index)),
     );
   }
 }
 
 class PokeButton extends StatelessWidget {
-  const PokeButton({Key? key}) : super(key: key);
+  const PokeButton({Key? key, required this.index}) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
