@@ -29,6 +29,7 @@ class TopPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
             itemCount: 10000,
             itemBuilder: (context, index) => PokeListItem(index: index)),
       ),
