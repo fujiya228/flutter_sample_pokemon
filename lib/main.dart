@@ -29,6 +29,8 @@ class TopPage extends StatefulWidget {
 }
 
 class _TopPageState extends State<TopPage> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,7 +40,12 @@ class _TopPageState extends State<TopPage> {
             itemCount: 898,
             itemBuilder: (context, index) => PokeListItem(index: index)),
         bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) => {},
+          onTap: (index) => {
+            setState(
+              () => currentIndex = index,
+            )
+          },
+          currentIndex: currentIndex,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.list),
