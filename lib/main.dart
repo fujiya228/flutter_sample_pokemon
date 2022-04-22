@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeMode mode = ThemeMode.system;
     return MaterialApp(
       title: 'Pokémon Pictorial Book',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: mode,
       home: const TopPage(),
     );
   }
