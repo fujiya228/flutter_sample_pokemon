@@ -26,10 +26,12 @@ class TopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: 10000,
-          itemBuilder: (context, index) => PokeListItem(index: index)),
+    return SafeArea(
+      child: Scaffold(
+        body: ListView.builder(
+            itemCount: 10000,
+            itemBuilder: (context, index) => PokeListItem(index: index)),
+      ),
     );
   }
 }
