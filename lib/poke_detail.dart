@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class PokeDetail extends StatelessWidget {
   const PokeDetail({Key? key}) : super(key: key);
 
+  static const Color typeColor = Color.fromRGBO(248, 88, 136, 1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,9 +38,15 @@ class PokeDetail extends StatelessWidget {
               'mew',
               style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             ),
-            const Chip(
-              label: Text('psychic'),
-              backgroundColor: Color.fromRGBO(248, 88, 136, 1),
+            Chip(
+              backgroundColor: typeColor,
+              label: Text(
+                'psychic',
+                style: TextStyle(
+                    color: typeColor.computeLuminance() > 0.5
+                        ? Colors.black
+                        : Colors.white),
+              ),
             ),
           ],
         ),
