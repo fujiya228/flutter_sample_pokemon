@@ -30,7 +30,7 @@ class TopPage extends StatelessWidget {
       child: Scaffold(
         body: ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            itemCount: 10000,
+            itemCount: 898,
             itemBuilder: (context, index) => PokeListItem(index: index)),
       ),
     );
