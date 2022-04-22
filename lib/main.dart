@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './poke_list.dart';
+import './settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,27 +34,27 @@ class _TopPageState extends State<TopPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: const PokeList(),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) => {
-            setState(
-              () => currentIndex = index,
-            )
-          },
-          currentIndex: currentIndex,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'settings',
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: const SafeArea(
+        child: PokeList(),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) => {
+          setState(
+            () => currentIndex = index,
+          )
+        },
+        currentIndex: currentIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'settings',
+          ),
+        ],
       ),
     );
   }
