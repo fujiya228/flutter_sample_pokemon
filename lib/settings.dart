@@ -9,6 +9,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  ThemeMode _themeMode = ThemeMode.system;
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -17,11 +19,12 @@ class _SettingsState extends State<Settings> {
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
           onTap: () async {
-            final ret = await Navigator.of(context).push(
+            var ret = await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const ThemeModeSelectionPage(),
               ),
             );
+            setState(() => _themeMode = ret!);
           },
         ),
       ],
