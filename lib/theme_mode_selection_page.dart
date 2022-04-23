@@ -12,7 +12,7 @@ class ThemeModeSelectionPage extends StatelessWidget {
             ListTile(
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
-                onPressed: () => {},
+                onPressed: () => Navigator.pop(context),
               ),
             ),
           ],
