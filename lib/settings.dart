@@ -18,6 +18,7 @@ class _SettingsState extends State<Settings> {
         ListTile(
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
+          trailing: Text(_themeModeTraillingText()),
           onTap: () async {
             var ret = await Navigator.of(context).push(
               MaterialPageRoute(
@@ -29,5 +30,18 @@ class _SettingsState extends State<Settings> {
         ),
       ],
     );
+  }
+
+  _themeModeTraillingText() {
+    switch (_themeMode) {
+      case ThemeMode.system:
+        return 'System';
+      case ThemeMode.light:
+        return 'Light';
+      case ThemeMode.dark:
+        return 'Dark';
+      default:
+        return 'System';
+    }
   }
 }
