@@ -8,6 +8,8 @@ class ThemeModeSelectionPage extends StatefulWidget {
 }
 
 class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
+  ThemeMode _currentThemeMode = ThemeMode.system;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,24 +25,30 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
             RadioListTile(
               title: const Text('System'),
               value: ThemeMode.system,
-              groupValue: ThemeMode.system,
-              onChanged: (val) => {},
+              groupValue: _currentThemeMode,
+              onChanged: (value) => _onRadioSelected(value),
             ),
             RadioListTile(
               title: const Text('Light'),
               value: ThemeMode.light,
-              groupValue: ThemeMode.light,
-              onChanged: (val) => {},
+              groupValue: _currentThemeMode,
+              onChanged: (value) => _onRadioSelected(value),
             ),
             RadioListTile(
               title: const Text('Dark'),
               value: ThemeMode.dark,
-              groupValue: ThemeMode.dark,
-              onChanged: (val) => {},
+              groupValue: _currentThemeMode,
+              onChanged: (value) => _onRadioSelected(value),
             ),
           ],
         ),
       ),
     );
+  }
+
+  _onRadioSelected(value) {
+    setState(() {
+      _currentThemeMode = value;
+    });
   }
 }
