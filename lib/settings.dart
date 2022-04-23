@@ -21,7 +21,7 @@ class _SettingsState extends State<Settings> {
           onTap: () async {
             var ret = await Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const ThemeModeSelectionPage(),
+                builder: (context) => ThemeModeSelectionPage(mode: _themeMode),
               ),
             );
             setState(() => _themeMode = ret!);
