@@ -11,10 +11,12 @@ class Settings extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
-          onTap: () => {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const ThemeModeSelectionPage(),
-            )),
+          onTap: () async {
+            final ret = await Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ThemeModeSelectionPage(),
+              ),
+            );
           },
         ),
       ],
