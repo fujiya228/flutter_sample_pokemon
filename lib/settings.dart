@@ -26,6 +26,7 @@ class _SettingsState extends State<Settings> {
               ),
             );
             setState(() => _themeMode = ret!);
+            await saveThemeMode(_themeMode);
           },
         ),
       ],
