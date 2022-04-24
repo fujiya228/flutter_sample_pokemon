@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './theme_mode_selection_page.dart';
+import './preference_helper.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -10,6 +11,12 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   ThemeMode _themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    loadThemeMode().then((value) => setState((() => _themeMode = value)));
+  }
 
   @override
   Widget build(BuildContext context) {
