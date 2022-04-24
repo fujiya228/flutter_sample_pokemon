@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './top_page.dart';
+import './preference_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,14 +14,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  ThemeMode themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    loadThemeMode().then((val) => setState(() => themeMode = val));
+  }
+
   @override
   Widget build(BuildContext context) {
-    ThemeMode mode = ThemeMode.system;
     return MaterialApp(
       title: 'Pokémon Pictorial Book',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: mode,
+      themeMode: themeMode,
       home: const TopPage(),
     );
   }
