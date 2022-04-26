@@ -19,15 +19,10 @@ class _SettingsState extends State<Settings> {
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
           trailing: Text(_themeModeTraillingText(mode)),
-          onTap: () async {
-            var ret = await Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => ThemeModeSelectionPage(mode: mode.mode),
-              ),
-            );
-            if (ret != null) {
-              mode.update(ret);
-            }
+          onTap: () => {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const ThemeModeSelectionPage(),
+            )),
           },
         ),
       ]),
