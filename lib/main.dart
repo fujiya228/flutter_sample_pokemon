@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './top_page.dart';
+import './theme_mode_notifyer.dart';
 import './preference_helper.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeModeNotifier(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
