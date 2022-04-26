@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import './top_page.dart';
 import './theme_mode_notifyer.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences pref = await SharedPreferences.getInstance();
+  final themeModeNotifier = ThemeModeNotifier(pref);
+
   runApp(ChangeNotifierProvider(
-    create: (context) => ThemeModeNotifier(),
+    create: (context) => themeModeNotifier,
     child: const MyApp(),
   ));
 }
