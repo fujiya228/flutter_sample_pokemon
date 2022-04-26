@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './theme_mode_selection_page.dart';
-import './preference_helper.dart';
+import './theme_mode_notifyer.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -10,38 +11,31 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  ThemeMode _themeMode = ThemeMode.system;
-
-  @override
-  void initState() {
-    super.initState();
-    loadThemeMode().then((value) => setState((() => _themeMode = value)));
-  }
-
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
+    return Consumer<ThemeModeNotifier>(
+      builder: (context, mode, child) => ListView(children: [
         ListTile(
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
-          trailing: Text(_themeModeTraillingText()),
+          trailing: Text(_themeModeTraillingText(mode)),
           onTap: () async {
             var ret = await Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => ThemeModeSelectionPage(mode: _themeMode),
+                builder: (context) => ThemeModeSelectionPage(mode: mode.mode),
               ),
             );
-            setState(() => _themeMode = ret!);
-            await saveThemeMode(_themeMode);
+            if (ret != null) {
+              mode.update(ret);
+            }
           },
         ),
-      ],
+      ]),
     );
   }
 
-  _themeModeTraillingText() {
-    switch (_themeMode) {
+  _themeModeTraillingText(mode) {
+    switch (mode.mode) {
       case ThemeMode.system:
         return 'System';
       case ThemeMode.light:
