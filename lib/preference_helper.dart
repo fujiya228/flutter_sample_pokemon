@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+const defaultTheme = ThemeMode.system;
+
 Future<void> saveThemeMode(ThemeMode mode) async {
   final pref = await SharedPreferences.getInstance();
   pref.setString(mode.key, mode.name);
@@ -8,7 +10,7 @@ Future<void> saveThemeMode(ThemeMode mode) async {
 
 Future<ThemeMode> loadThemeMode() async {
   final pref = await SharedPreferences.getInstance();
-  return toMode(pref.getString(ThemeMode.system.key) ?? ThemeMode.system.name);
+  return toMode(pref.getString(defaultTheme.key) ?? defaultTheme.name);
 }
 
 ThemeMode toMode(String str) {
