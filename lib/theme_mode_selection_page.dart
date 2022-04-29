@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'models/theme_mode_notifyer.dart';
+import 'models/theme_mode_notifier.dart';
 
 class ThemeModeSelectionPage extends StatefulWidget {
   const ThemeModeSelectionPage({Key? key}) : super(key: key);
