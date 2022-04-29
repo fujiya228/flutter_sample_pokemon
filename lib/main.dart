@@ -3,14 +3,23 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './top_page.dart';
 import 'models/theme_mode_notifier.dart';
+import 'models/pokemons_notifier.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences pref = await SharedPreferences.getInstance();
   final themeModeNotifier = ThemeModeNotifier(pref);
+  final pokemonsNotifier = PokemonsNotifier();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => themeModeNotifier,
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<ThemeModeNotifier>(
+        create: (context) => themeModeNotifier,
+      ),
+      ChangeNotifierProvider<PokemonsNotifier>(
+        create: (context) => pokemonsNotifier,
+      ),
+    ],
     child: const MyApp(),
   ));
 }
