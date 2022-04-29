@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './poke_list_item.dart';
+import 'models/pokemons_notifier.dart';
 
 class PokeList extends StatelessWidget {
   const PokeList({
@@ -8,9 +10,14 @@ class PokeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Consumer<PokemonsNotifier>(
+      builder: (context, pokemons, child) => ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        itemCount: 898,
-        itemBuilder: (context, index) => PokeListItem(index: index));
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return PokeListItem(index: index);
+        },
+      ),
+    );
   }
 }
