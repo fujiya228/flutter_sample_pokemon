@@ -15,7 +15,7 @@ class PokeList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return PokeListItem(index: index);
+          return PokeListItem(pokemon: pokemons.byId(index + 1));
         },
       ),
     );

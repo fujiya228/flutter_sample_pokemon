@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import './poke_detail.dart';
+import './consts/pokeapi.dart';
+import './models/pokemon.dart';
 
 class PokeListItem extends StatelessWidget {
-  const PokeListItem({Key? key, required this.index}) : super(key: key);
-
-  final int index;
+  const PokeListItem({Key? key, required this.pokemon}) : super(key: key);
+  final Pokemon? pokemon;
 
   @override
   Widget build(BuildContext context) {
@@ -12,23 +13,22 @@ class PokeListItem extends StatelessWidget {
       leading: Container(
         width: 80,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(248, 88, 136, 1),
+          color: (pokeTypeColors[pokemon!.types.first] ?? Colors.grey[100])
+              ?.withOpacity(.6),
           borderRadius: BorderRadius.circular(10),
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fitWidth,
             image: NetworkImage(
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+              pokemon!.imageUrl,
             ),
           ),
         ),
       ),
-      title: const Text(
-        'Mew',
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      title: Text(
+        pokemon!.name,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
-      subtitle: const Text(
-        'psychic',
-      ),
+      subtitle: Text(pokemon!.types.first),
       trailing: const Icon(Icons.navigate_next),
       onTap: () => {
         Navigator.of(context).push(
