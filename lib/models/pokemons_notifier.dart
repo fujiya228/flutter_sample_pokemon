@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './pokemon.dart';
 import '../api/pokeapi.dart';
+import '../consts/pokeapi.dart';
 
 final Pokemon defaultPokemon = Pokemon(
     id: 0,
@@ -11,8 +12,10 @@ final Pokemon defaultPokemon = Pokemon(
 
 class PokemonsNotifier extends ChangeNotifier {
   final Map<int, Pokemon> _pokeMap = {};
+  int _pokeCount = 30;
 
   Map<int, Pokemon> get pokes => _pokeMap;
+  int get pokeCount => _pokeCount;
 
   void addPokemon(Pokemon poke) {
     _pokeMap[poke.id] = poke;
@@ -29,5 +32,13 @@ class PokemonsNotifier extends ChangeNotifier {
       fetchPoke(id);
     }
     return _pokeMap[id];
+  }
+
+  updatePokeCount(int pokeCount) {
+    _pokeCount = pokeCount;
+    if (_pokeCount > pokeMaxId) {
+      _pokeCount = pokeCount;
+    }
+    notifyListeners();
   }
 }
