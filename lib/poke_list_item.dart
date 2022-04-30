@@ -33,7 +33,7 @@ class PokeListItem extends StatelessWidget {
       onTap: () => {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (BuildContext context) => const PokeDetail(),
+            builder: (BuildContext context) => PokeDetail(pokemon: pokemon!),
           ),
         ),
       },
