@@ -28,7 +28,7 @@ class PokeListItem extends StatelessWidget {
         pokemon!.name,
         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
-      subtitle: Text(pokemon!.types.first),
+      subtitle: Text(pokemon!.types.join(', ')),
       trailing: const Icon(Icons.navigate_next),
       onTap: () => {
         Navigator.of(context).push(
