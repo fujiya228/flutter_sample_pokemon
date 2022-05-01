@@ -11,12 +11,17 @@ class TopPage extends StatefulWidget {
 
 class _TopPageState extends State<TopPage> {
   int currentIndex = 0;
+  List<StatelessWidget> pageWidgetList = [
+    const PokeList(),
+    const PokeList(),
+    const Settings(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: currentIndex == 0 ? const PokeList() : const Settings(),
+        child: pageWidgetList[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) => {
