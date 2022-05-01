@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './poke_list.dart';
+import './favorite_poke_list.dart';
 import './settings.dart';
 
 class TopPage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _TopPageState extends State<TopPage> {
   int currentIndex = 0;
   List<StatelessWidget> pageWidgetList = [
     const PokeList(),
-    const PokeList(),
+    const FavoritePokeList(),
     const Settings(),
   ];
 
