@@ -3,14 +3,9 @@ import 'package:provider/provider.dart';
 import './theme_mode_selection_page.dart';
 import 'models/theme_mode_notifier.dart';
 
-class Settings extends StatefulWidget {
+class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
 
-  @override
-  State<Settings> createState() => _SettingsState();
-}
-
-class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeModeNotifier>(
