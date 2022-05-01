@@ -3,16 +3,11 @@ import 'package:provider/provider.dart';
 import './poke_list_item.dart';
 import 'models/pokemons_notifier.dart';
 
-class PokeList extends StatefulWidget {
+class PokeList extends StatelessWidget {
   const PokeList({
     Key? key,
   }) : super(key: key);
 
-  @override
-  State<PokeList> createState() => _PokeListState();
-}
-
-class _PokeListState extends State<PokeList> {
   static const int more = 30;
 
   @override
