@@ -31,6 +31,10 @@ class _TopPageState extends State<TopPage> {
             label: 'home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'favorite',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'settings',
           ),
