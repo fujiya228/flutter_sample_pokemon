@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/theme_mode_notifier.dart';
 
-class ThemeModeSelectionPage extends StatefulWidget {
+class ThemeModeSelectionPage extends StatelessWidget {
   const ThemeModeSelectionPage({Key? key}) : super(key: key);
 
-  @override
-  State<ThemeModeSelectionPage> createState() => _ThemeModeSelectionPageState();
-}
-
-class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeModeNotifier>(
