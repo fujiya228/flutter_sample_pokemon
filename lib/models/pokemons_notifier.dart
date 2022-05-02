@@ -37,7 +37,7 @@ class PokemonsNotifier extends ChangeNotifier {
   updatePokeCount(int pokeCount) {
     _pokeCount = pokeCount;
     if (_pokeCount > pokeMaxId) {
-      _pokeCount = pokeCount;
+      _pokeCount = pokeMaxId;
     }
     notifyListeners();
   }
