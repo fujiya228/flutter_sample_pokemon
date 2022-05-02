@@ -40,6 +40,10 @@ class PokemonsNotifier extends ChangeNotifier {
     return _pokeMap[id];
   }
 
+  Pokemon? favoritePokeByIndex(int index) {
+    return byId(favMock[index].pokeId);
+  }
+
   void updatePokeList() {
     _pokeCount += 30;
     if (_pokeCount > pokeMaxId) {

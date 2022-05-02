@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './poke_list_item.dart';
 import 'models/pokemons_notifier.dart';
-import 'models/favorite.dart';
 
 class FavoritePokeList extends StatelessWidget {
   const FavoritePokeList({
@@ -23,7 +22,7 @@ class FavoritePokeList extends StatelessWidget {
             );
           } else {
             return PokeListItem(
-              pokemon: pokemons.byId(favMock[index].pokeId),
+              pokemon: pokemons.favoritePokeByIndex(index),
             );
           }
         },
