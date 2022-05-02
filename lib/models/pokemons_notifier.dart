@@ -18,7 +18,10 @@ class PokemonsNotifier extends ChangeNotifier {
 
   Map<int, Pokemon> get pokes => _pokeMap;
   int get pokeCount => _pokeCount;
+  int get pokeListItemCount => listItemCount(_pokeCount, pokeMaxId);
   int get favoritePokeCount => _favoritePokeCount;
+  int get favoritePokeListItemCount =>
+      listItemCount(_favoritePokeCount, favMock.length);
 
   void addPokemon(Pokemon poke) {
     _pokeMap[poke.id] = poke;
@@ -51,5 +54,13 @@ class PokemonsNotifier extends ChangeNotifier {
       _favoritePokeCount = favMock.length;
     }
     notifyListeners();
+  }
+
+  int listItemCount(int pokeCount, int max) {
+    return isLastPage(pokeCount, max) ? pokeCount : pokeCount + 1;
+  }
+
+  bool isLastPage(int pokeCount, int max) {
+    return pokeCount == max;
   }
 }
