@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './pokemon.dart';
 import '../api/pokeapi.dart';
 import '../consts/pokeapi.dart';
+import '../models/favorite.dart';
 
 final Pokemon defaultPokemon = Pokemon(
     id: 0,
@@ -13,9 +14,11 @@ final Pokemon defaultPokemon = Pokemon(
 class PokemonsNotifier extends ChangeNotifier {
   final Map<int, Pokemon> _pokeMap = {};
   int _pokeCount = 30;
+  int _favoritePokeCount = 30;
 
   Map<int, Pokemon> get pokes => _pokeMap;
   int get pokeCount => _pokeCount;
+  int get favoritePokeCount => _favoritePokeCount;
 
   void addPokemon(Pokemon poke) {
     _pokeMap[poke.id] = poke;
@@ -38,6 +41,14 @@ class PokemonsNotifier extends ChangeNotifier {
     _pokeCount = pokeCount;
     if (_pokeCount > pokeMaxId) {
       _pokeCount = pokeMaxId;
+    }
+    notifyListeners();
+  }
+
+  updateFavoritePokeCount(int favoritePokeCount) {
+    _favoritePokeCount = favoritePokeCount;
+    if (_favoritePokeCount > favMock.length) {
+      _favoritePokeCount = favMock.length;
     }
     notifyListeners();
   }

@@ -10,24 +10,19 @@ class FavoritePokeList extends StatelessWidget {
   }) : super(key: key);
 
   static const int more = 30;
-  static List<Favorite> favMock = [
-    Favorite(pokeId: 1),
-    Favorite(pokeId: 4),
-    Favorite(pokeId: 7),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Consumer<PokemonsNotifier>(
       builder: (context, pokemons, child) => ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        itemCount: itemCount(pokemons.pokeCount) + 1,
+        itemCount: itemCount(pokemons.favoritePokeCount) + 1,
         itemBuilder: (context, index) {
-          if (index == itemCount(pokemons.pokeCount)) {
+          if (index == itemCount(pokemons.favoritePokeCount)) {
             return OutlinedButton(
               child: const Text('more'),
-              onPressed: () =>
-                  pokemons.updatePokeCount(pokemons.pokeCount + more),
+              onPressed: () => pokemons
+                  .updateFavoritePokeCount(pokemons.favoritePokeCount + more),
             );
           } else {
             return PokeListItem(
