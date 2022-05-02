@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './poke_list_item.dart';
+import 'consts/pokeapi.dart';
 import 'models/pokemons_notifier.dart';
 
 class PokeList extends StatelessWidget {
@@ -15,7 +16,7 @@ class PokeList extends StatelessWidget {
     return Consumer<PokemonsNotifier>(
       builder: (context, pokemons, child) => ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        itemCount: pokemons.pokeCount + 1,
+        itemCount: listItemCount(pokemons.pokeCount),
         itemBuilder: (context, index) {
           if (index == pokemons.pokeCount) {
             return OutlinedButton(
@@ -31,5 +32,13 @@ class PokeList extends StatelessWidget {
         },
       ),
     );
+  }
+
+  int listItemCount(int pokeCount) {
+    return isLastPage(pokeCount) ? pokeCount : pokeCount + 1;
+  }
+
+  bool isLastPage(int pokeCount) {
+    return pokeCount == pokeMaxId;
   }
 }
