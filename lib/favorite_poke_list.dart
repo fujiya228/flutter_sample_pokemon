@@ -16,9 +16,9 @@ class FavoritePokeList extends StatelessWidget {
     return Consumer<PokemonsNotifier>(
       builder: (context, pokemons, child) => ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        itemCount: itemCount(pokemons.favoritePokeCount) + 1,
+        itemCount: listItemCount(pokemons.favoritePokeCount),
         itemBuilder: (context, index) {
-          if (index == itemCount(pokemons.favoritePokeCount)) {
+          if (index == pokemons.favoritePokeCount) {
             return OutlinedButton(
               child: const Text('more'),
               onPressed: () => pokemons
@@ -34,11 +34,11 @@ class FavoritePokeList extends StatelessWidget {
     );
   }
 
-  int itemCount(int pokeCount) {
-    int ret = pokeCount;
-    if (ret > favMock.length) {
-      ret = favMock.length;
-    }
-    return ret;
+  int listItemCount(int pokeCount) {
+    return isLastPage(pokeCount) ? pokeCount : pokeCount + 1;
+  }
+
+  bool isLastPage(int pokeCount) {
+    return pokeCount == favMock.length;
   }
 }

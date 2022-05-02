@@ -14,7 +14,7 @@ final Pokemon defaultPokemon = Pokemon(
 class PokemonsNotifier extends ChangeNotifier {
   final Map<int, Pokemon> _pokeMap = {};
   int _pokeCount = 30;
-  int _favoritePokeCount = 30;
+  int _favoritePokeCount = favMock.length < 30 ? favMock.length : 30;
 
   Map<int, Pokemon> get pokes => _pokeMap;
   int get pokeCount => _pokeCount;
