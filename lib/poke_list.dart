@@ -9,8 +9,6 @@ class PokeList extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static const int more = 30;
-
   @override
   Widget build(BuildContext context) {
     return Consumer<PokemonsNotifier>(
@@ -21,8 +19,7 @@ class PokeList extends StatelessWidget {
           if (index == pokemons.pokeCount) {
             return OutlinedButton(
               child: const Text('more'),
-              onPressed: () =>
-                  pokemons.updatePokeCount(pokemons.pokeCount + more),
+              onPressed: () => pokemons.updatePokeList(),
             );
           } else {
             return PokeListItem(
