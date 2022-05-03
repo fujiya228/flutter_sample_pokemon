@@ -15,24 +15,30 @@ class FavoritePokeList extends StatelessWidget {
       children: [
         const Help(helpMessage: 'お気に入りのポケモンが表示されています'),
         Expanded(
-          child: Consumer<PokemonsNotifier>(
-            builder: (context, pokemons, child) => ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-              itemCount: pokemons.favoritePokeListItemCount,
-              itemBuilder: (context, index) {
-                if (index == pokemons.favoritePokeCount) {
-                  return OutlinedButton(
-                    child: const Text('more'),
-                    onPressed: () => pokemons.updateFavoritePokeList(),
-                  );
-                } else {
-                  return PokeListItem(
-                    pokemon: pokemons.favoritePokeByIndex(index),
-                  );
-                }
-              },
-            ),
-          ),
+          child:
+              Consumer<PokemonsNotifier>(builder: (context, pokemons, child) {
+            if (pokemons.favoritePokeCount == 0) {
+              return const Text('お気に入り登録されたポケモンはいません');
+            } else {
+              return ListView.builder(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                itemCount: pokemons.favoritePokeListItemCount,
+                itemBuilder: (context, index) {
+                  if (index == pokemons.favoritePokeCount) {
+                    return OutlinedButton(
+                      child: const Text('more'),
+                      onPressed: () => pokemons.updateFavoritePokeList(),
+                    );
+                  } else {
+                    return PokeListItem(
+                      pokemon: pokemons.favoritePokeByIndex(index),
+                    );
+                  }
+                },
+              );
+            }
+          }),
         ),
       ],
     );

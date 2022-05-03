@@ -13,14 +13,20 @@ final Pokemon defaultPokemon = Pokemon(
 
 class PokemonsNotifier extends ChangeNotifier {
   final Map<int, Pokemon> _pokeMap = {};
-  int _pokeCount = 30;
-  int _favoritePokeCount = favMock.length < 30 ? favMock.length : 30;
+  final List<Favorite> _favs = [];
+  int _pokeCount = 0;
+  int _favoritePokeCount = 0;
+
+  PokemonsNotifier() {
+    _pokeCount = 30;
+    _favoritePokeCount = _favs.length < 30 ? _favs.length : 30;
+  }
 
   int get pokeCount => _pokeCount;
   int get pokeListItemCount => listItemCount(_pokeCount, pokeMaxId);
   int get favoritePokeCount => _favoritePokeCount;
   int get favoritePokeListItemCount =>
-      listItemCount(_favoritePokeCount, favMock.length);
+      listItemCount(_favoritePokeCount, _favs.length);
 
   void addPokemon(Pokemon poke) {
     _pokeMap[poke.id] = poke;
@@ -40,7 +46,7 @@ class PokemonsNotifier extends ChangeNotifier {
   }
 
   Pokemon? favoritePokeByIndex(int index) {
-    return byId(favMock[index].pokeId);
+    return byId(_favs[index].pokeId);
   }
 
   void updatePokeList() {
@@ -53,8 +59,8 @@ class PokemonsNotifier extends ChangeNotifier {
 
   void updateFavoritePokeList() {
     _favoritePokeCount += 30;
-    if (_favoritePokeCount > favMock.length) {
-      _favoritePokeCount = favMock.length;
+    if (_favoritePokeCount > _favs.length) {
+      _favoritePokeCount = _favs.length;
     }
     notifyListeners();
   }
