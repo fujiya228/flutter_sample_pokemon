@@ -16,7 +16,6 @@ class PokemonsNotifier extends ChangeNotifier {
   int _pokeCount = 30;
   int _favoritePokeCount = favMock.length < 30 ? favMock.length : 30;
 
-  Map<int, Pokemon> get pokes => _pokeMap;
   int get pokeCount => _pokeCount;
   int get pokeListItemCount => listItemCount(_pokeCount, pokeMaxId);
   int get favoritePokeCount => _favoritePokeCount;
