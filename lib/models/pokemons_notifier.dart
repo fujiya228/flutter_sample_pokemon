@@ -72,4 +72,14 @@ class PokemonsNotifier extends ChangeNotifier {
   bool isLastPage(int pokeCount, int max) {
     return pokeCount == max;
   }
+
+  void addFavorite(Favorite fav) {
+    _favs.add(fav);
+    notifyListeners();
+  }
+
+  void deleteFavorite(int id) {
+    _favs.removeWhere((fav) => fav.pokeId == id);
+    notifyListeners();
+  }
 }
