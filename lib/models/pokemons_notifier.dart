@@ -73,6 +73,18 @@ class PokemonsNotifier extends ChangeNotifier {
     return pokeCount == max;
   }
 
+  void toggleFavorite(Favorite fav) {
+    if (isFavorite(fav.pokeId)) {
+      deleteFavorite(fav.pokeId);
+    } else {
+      addFavorite(fav);
+    }
+  }
+
+  bool isFavorite(int id) {
+    return _favs.indexWhere((fav) => fav.pokeId == id) >= 0;
+  }
+
   void addFavorite(Favorite fav) {
     _favs.add(fav);
     notifyListeners();
