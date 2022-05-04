@@ -17,7 +17,7 @@ class FavoritePokeList extends StatelessWidget {
         Expanded(
           child:
               Consumer<PokemonsNotifier>(builder: (context, pokemons, child) {
-            if (pokemons.favoritePokeCount == 0) {
+            if (pokemons.favoritePokeListItemCount == 0) {
               return const Text('お気に入り登録されたポケモンはいません');
             } else {
               return ListView.builder(

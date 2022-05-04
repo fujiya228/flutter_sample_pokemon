@@ -14,13 +14,8 @@ final Pokemon defaultPokemon = Pokemon(
 class PokemonsNotifier extends ChangeNotifier {
   final Map<int, Pokemon> _pokeMap = {};
   final List<Favorite> _favs = [];
-  int _pokeCount = 0;
-  int _favoritePokeCount = 0;
-
-  PokemonsNotifier() {
-    _pokeCount = 30;
-    _favoritePokeCount = _favs.length < 30 ? _favs.length : 30;
-  }
+  int _pokeCount = 30;
+  int _favoritePokeCount = 30;
 
   int get pokeCount => _pokeCount;
   int get pokeListItemCount => listItemCount(_pokeCount, pokeMaxId);
@@ -66,11 +61,11 @@ class PokemonsNotifier extends ChangeNotifier {
   }
 
   int listItemCount(int pokeCount, int max) {
-    return isLastPage(pokeCount, max) ? pokeCount : pokeCount + 1;
+    return isLastPage(pokeCount, max) ? max : pokeCount + 1;
   }
 
   bool isLastPage(int pokeCount, int max) {
-    return pokeCount == max;
+    return pokeCount >= max;
   }
 
   void toggleFavorite(Favorite fav) {
