@@ -13,7 +13,7 @@ class Settings extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.lightbulb),
           title: const Text('Light/Dark Mode'),
-          trailing: Text(_themeModeTraillingText(mode)),
+          trailing: Text(_themeModeTraillingText(mode.mode)),
           onTap: () => {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const ThemeModeSelectionPage(),
@@ -24,8 +24,8 @@ class Settings extends StatelessWidget {
     );
   }
 
-  _themeModeTraillingText(mode) {
-    switch (mode.mode) {
+  _themeModeTraillingText(ThemeMode mode) {
+    switch (mode) {
       case ThemeMode.system:
         return 'System';
       case ThemeMode.light:
