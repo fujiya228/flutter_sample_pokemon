@@ -24,4 +24,14 @@ class FavoritesDb {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
+
+  static Future<List<Favorite>> read() async {
+    var db = await openDb();
+    final List<Map<String, dynamic>> maps = await db.query(favTableName);
+    return List.generate(maps.length, (index) {
+      return Favorite(
+        pokeId: maps[index]['id'],
+      );
+    });
+  }
 }
