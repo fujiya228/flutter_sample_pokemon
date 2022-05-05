@@ -18,6 +18,10 @@ class PokemonsNotifier extends ChangeNotifier {
   int _pokeCount = 30;
   int _favoritePokeCount = 30;
 
+  PokemonsNotifier() {
+    syncDb();
+  }
+
   int get pokeCount => _pokeCount;
   int get pokeListItemCount => listItemCount(_pokeCount, pokeMaxId);
   int get favoritePokeCount => _favoritePokeCount;
