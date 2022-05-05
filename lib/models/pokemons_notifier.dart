@@ -74,8 +74,12 @@ class PokemonsNotifier extends ChangeNotifier {
     return _favs.indexWhere((fav) => fav.pokeId == id) >= 0;
   }
 
-  void addFavorite(Favorite fav) {
-    _favs.add(fav);
+  void syncDb() async {
+    FavoritesDb.read().then(
+      (val) => _favs
+        ..clear()
+        ..addAll(val),
+    );
     notifyListeners();
   }
 
