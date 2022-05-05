@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../consts/favorite_db.dart';
+import '../models/favorite.dart';
 
 class FavoritesDb {
   static Future<Database> openDb() async {
@@ -12,6 +13,15 @@ class FavoritesDb {
         );
       },
       version: 1,
+    );
+  }
+
+  static Future<void> create(Favorite fav) async {
+    var db = await openDb();
+    await db.insert(
+      favTableName,
+      fav.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 }
