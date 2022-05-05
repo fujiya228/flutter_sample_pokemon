@@ -34,4 +34,13 @@ class FavoritesDb {
       );
     });
   }
+
+  static Future<void> delete(int pokeId) async {
+    var db = await openDb();
+    await db.delete(
+      favTableName,
+      where: 'id = ?',
+      whereArgs: [pokeId],
+    );
+  }
 }
