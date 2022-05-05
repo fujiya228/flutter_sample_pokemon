@@ -3,6 +3,7 @@ import './pokemon.dart';
 import '../api/pokeapi.dart';
 import '../consts/pokeapi.dart';
 import '../models/favorite.dart';
+import '../db/favorite_db.dart';
 
 final Pokemon defaultPokemon = Pokemon(
     id: 0,
@@ -83,8 +84,13 @@ class PokemonsNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteFavorite(int id) {
-    _favs.removeWhere((fav) => fav.pokeId == id);
-    notifyListeners();
+  void addFavorite(Favorite fav) async {
+    await FavoritesDb.create(fav);
+    syncDb();
+  }
+
+  void deleteFavorite(int id) async {
+    await FavoritesDb.delete(id);
+    syncDb();
   }
 }
