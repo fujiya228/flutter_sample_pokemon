@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import './top_page.dart';
+import 'top_page.dart';
 import 'settings/theme_mode_notifier.dart';
 import 'poke_list/pokemons_notifier.dart';
 
