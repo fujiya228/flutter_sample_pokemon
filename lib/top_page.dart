@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './poke_list.dart';
 import './favorite_poke_list.dart';
-import './settings.dart';
+import 'settings/settings.dart';
 
 class TopPage extends StatefulWidget {
   const TopPage({Key? key}) : super(key: key);
