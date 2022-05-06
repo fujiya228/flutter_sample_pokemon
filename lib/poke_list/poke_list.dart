@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'poke_list_item.dart';
-import '../help.dart';
+import '../utils/help.dart';
 import '../models/pokemons_notifier.dart';
 
 class PokeList extends StatelessWidget {
