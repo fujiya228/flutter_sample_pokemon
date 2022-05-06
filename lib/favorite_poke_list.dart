@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './poke_list_item.dart';
+import 'poke_list/poke_list_item.dart';
 import './help.dart';
 import 'models/pokemons_notifier.dart';
 
