@@ -4,7 +4,7 @@ import 'poke_detail.dart';
 import '../consts/pokeapi.dart';
 import '../models/pokemon.dart';
 import '../models/favorite.dart';
-import '../models/pokemons_notifier.dart';
+import 'pokemons_notifier.dart';
 
 class PokeListItem extends StatelessWidget {
   const PokeListItem({Key? key, required this.pokemon}) : super(key: key);

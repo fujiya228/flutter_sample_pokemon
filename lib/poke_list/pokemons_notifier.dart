@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './pokemon.dart';
+import '../models/pokemon.dart';
 import '../api/pokeapi.dart';
 import '../consts/pokeapi.dart';
 import '../models/favorite.dart';
