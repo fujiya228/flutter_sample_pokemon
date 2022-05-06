@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../theme_mode_selection_page.dart';
+import 'theme_mode_selection_page.dart';
 import 'theme_mode_notifier.dart';
 
 class Settings extends StatelessWidget {
