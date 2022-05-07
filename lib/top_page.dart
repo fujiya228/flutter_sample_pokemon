@@ -22,7 +22,10 @@ class _TopPageState extends State<TopPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: pageWidgetList[currentIndex],
+        child: IndexedStack(
+          children: pageWidgetList,
+          index: currentIndex,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) => {
